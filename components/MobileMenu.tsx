@@ -43,7 +43,7 @@ export default function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) 
       >
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-warm-white/10">
-          <Logo variant="icon" colorMode="light" />
+          <Logo size={40} />
           <button
             onClick={onClose}
             className="p-2 text-warm-white/90 hover:text-warm-white transition-colors"
