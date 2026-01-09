@@ -1,4 +1,4 @@
-import { Instagram, Mail, Users } from 'lucide-react'
+import { Instagram, Mail } from 'lucide-react'
 import Container from '@/components/Container'
 import Section from '@/components/Section'
 import SectionHeading from '@/components/SectionHeading'
@@ -6,8 +6,8 @@ import Card from '@/components/Card'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata = {
-  title: 'Connect | Hana Community',
-  description: 'Get connected with Hana Community. Reach out, join a small group, or follow us on social media.',
+  title: 'Connect | Agape Collective',
+  description: 'Get connected with Agape Collective. Reach out, join a small group, or follow us on social media.',
 }
 
 export default function ConnectPage() {
@@ -57,7 +57,7 @@ export default function ConnectPage() {
                       <h3 className="font-heading font-semibold text-navy-dark">
                         Instagram
                       </h3>
-                      <p className="text-gray-500 text-sm">@hanacommunity</p>
+                      <p className="text-gray-500 text-sm">@agapecollectivekpcf</p>
                     </div>
                   </div>
                 </Card>
@@ -70,39 +70,12 @@ export default function ConnectPage() {
                       <h3 className="font-heading font-semibold text-navy-dark">
                         Email
                       </h3>
-                      <p className="text-gray-500 text-sm">hana@kpcfresno.org</p>
+                      <p className="text-gray-500 text-sm">agapecollective@kpcf.org</p>
                     </div>
                   </div>
                 </Card>
               </div>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Small Groups */}
-      <Section variant="light">
-        <Container>
-          <SectionHeading
-            title="Small Groups"
-            subtitle="Find your people. Go deeper together."
-          />
-          <div className="max-w-3xl mx-auto">
-            <Card className="text-center">
-              <div className="w-16 h-16 bg-gold-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users size={32} className="text-navy-light" />
-              </div>
-              <h3 className="font-heading font-semibold text-xl text-navy-dark mb-4">
-                Coming Soon
-              </h3>
-              <p className="text-gray-600 mb-6">
-                We&apos;re in the process of launching small groups — intimate gatherings
-                where you can build deeper relationships and grow in faith together.
-              </p>
-              <p className="text-navy-dark font-medium">
-                Interested? Let us know in the contact form above!
-              </p>
-            </Card>
           </div>
         </Container>
       </Section>

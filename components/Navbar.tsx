@@ -7,10 +7,10 @@ import Logo from './Logo'
 import MobileMenu from './MobileMenu'
 
 const navLinks = [
+  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/gather', label: 'Gather' },
   { href: '/connect', label: 'Connect' },
-  { href: '/serve', label: 'Serve' },
   { href: '/give', label: 'Give' },
 ]
 
@@ -30,39 +30,33 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 bg-navy-dark transition-shadow duration-300 ${
-          isScrolled ? 'shadow-lg' : ''
+        className={`fixed top-0 left-0 right-0 w-full z-50 bg-navy-dark transition-shadow duration-300 ${
+          isScrolled ? 'shadow-md' : ''
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex items-center justify-between h-28">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
-              <Logo variant="full" colorMode="light" />
+              <Logo size={100} />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-warm-white/90 hover:text-warm-white font-body text-sm font-medium transition-colors duration-200"
+                  className="text-white/80 hover:text-white font-body text-lg font-medium transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/admin/login"
-                className="text-warm-white/60 hover:text-warm-white/80 font-body text-sm transition-colors duration-200"
-              >
-                Admin
-              </Link>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-warm-white/90 hover:text-warm-white transition-colors"
+              className="md:hidden p-2 text-white/80 hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open menu"
             >

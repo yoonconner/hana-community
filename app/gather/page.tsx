@@ -1,4 +1,4 @@
-import { Clock, MapPin, HelpCircle } from 'lucide-react'
+import { Clock, MapPin } from 'lucide-react'
 import Container from '@/components/Container'
 import Section from '@/components/Section'
 import SectionHeading from '@/components/SectionHeading'
@@ -8,36 +8,9 @@ import EventCard from '@/components/EventCard'
 import { getEvents, getUpcomingEvents } from '@/lib/actions/events'
 
 export const metadata = {
-  title: 'Gather | Hana Community',
-  description: 'Find out when and where Hana Community meets. Join us for our bi-weekly gatherings!',
+  title: 'Gather | Agape Collective',
+  description: 'Find out when and where Agape Collective meets. Join us for our bi-weekly gatherings!',
 }
-
-const faqs = [
-  {
-    question: 'Do I need to RSVP?',
-    answer: 'Nope! Just show up. We\'d love to see you there.',
-  },
-  {
-    question: 'What should I bring?',
-    answer: 'Just yourself! We\'ll have food and everything else covered.',
-  },
-  {
-    question: 'Is there parking?',
-    answer: 'Yes, there\'s free parking available at the church.',
-  },
-  {
-    question: 'What if I don\'t know anyone?',
-    answer: 'That\'s totally fine! We were all new at some point. Our community is welcoming and we\'ll make sure you feel at home.',
-  },
-  {
-    question: 'Do I have to be Korean?',
-    answer: 'Not at all! Hana Community welcomes everyone from every background.',
-  },
-  {
-    question: 'What\'s the age range?',
-    answer: 'We\'re a young adult group for those from high school graduation through their 30s, but anyone young at heart is welcome!',
-  },
-]
 
 export default async function GatherPage() {
   const events = await getEvents()
@@ -144,54 +117,37 @@ export default async function GatherPage() {
             <div className="space-y-6">
               <Card>
                 <h3 className="font-heading font-semibold text-lg text-navy-dark mb-2">
-                  5:30 PM — Arrive & Eat
+                  5:30 PM — Meet at CM
                 </h3>
                 <p className="text-gray-600">
-                  Grab some food, catch up with friends, meet someone new. No rush.
+                  Arrive and settle in. Say hi to familiar faces and meet new ones.
                 </p>
               </Card>
               <Card>
                 <h3 className="font-heading font-semibold text-lg text-navy-dark mb-2">
-                  6:15 PM — Together Time
+                  6:00 PM — Worship & Announcements
                 </h3>
                 <p className="text-gray-600">
-                  Worship, a short message, and time for reflection. Real talk about real life.
+                  Come together in praise and hear what&apos;s happening in our community.
                 </p>
               </Card>
               <Card>
                 <h3 className="font-heading font-semibold text-lg text-navy-dark mb-2">
-                  7:30 PM — Hang & Connect
+                  6:30 PM — Sermon
                 </h3>
                 <p className="text-gray-600">
-                  Small group discussions, games, or just hanging out. Stay as long as you want.
+                  Dive into God&apos;s Word together through teaching and reflection.
+                </p>
+              </Card>
+              <Card>
+                <h3 className="font-heading font-semibold text-lg text-navy-dark mb-2">
+                  6:45 PM — Fellowship & Food
+                </h3>
+                <p className="text-gray-600">
+                  The best part — eating together and building community.
                 </p>
               </Card>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* FAQ */}
-      <Section variant="cream">
-        <Container>
-          <SectionHeading
-            title="FAQ"
-            subtitle="Got questions? We've got answers."
-          />
-          <div className="max-w-3xl mx-auto grid gap-4">
-            {faqs.map((faq, index) => (
-              <Card key={index}>
-                <div className="flex gap-3">
-                  <HelpCircle size={20} className="text-navy-light flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-heading font-semibold text-navy-dark mb-2">
-                      {faq.question}
-                    </h3>
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
           </div>
         </Container>
       </Section>

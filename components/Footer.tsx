@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4">
-            <Logo variant="full" colorMode="light" />
+            <Logo size={80} />
             <p className="text-sm text-warm-white/60 max-w-xs">
               A young adult ministry at Korean Presbyterian Church of Fresno.
               Building bridges through faith, fellowship, and service.
@@ -39,11 +39,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/serve" className="text-sm hover:text-warm-white transition-colors">
-                  Serve
-                </Link>
-              </li>
-              <li>
                 <Link href="/give" className="text-sm hover:text-warm-white transition-colors">
                   Give
                 </Link>
@@ -56,11 +51,19 @@ export default function Footer() {
             <h3 className="font-heading font-medium text-sm tracking-wide uppercase mb-4 text-warm-white">
               Connect With Us
             </h3>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-3 text-sm">
               <p>Korean Presbyterian Church of Fresno</p>
               <p className="text-warm-white/60">
                 Every other Friday at 5:30 PM
               </p>
+              <div className="pt-2">
+                <Link
+                  href="/connect"
+                  className="text-gold-accent hover:text-gold-accent/80 transition-colors"
+                >
+                  Get in touch &rarr;
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -68,7 +71,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-warm-white/10 mt-8 pt-8 text-center">
           <p className="text-sm text-warm-white/50">
-            &copy; {currentYear} Hana Community | 하나 공동체. All rights reserved.
+            &copy; {currentYear} Agape Collective. All rights reserved.
           </p>
         </div>
       </div>

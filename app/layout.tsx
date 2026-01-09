@@ -17,7 +17,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Hana Community | 하나 공동체',
+  title: 'Agape Collective | 아가페',
   description: 'A vibrant community where young adults from every background grow in faith, serve together, and bridge the generations and cultures of our church.',
 }
 
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow pt-16">
+        <main className="flex-grow pt-28">
           {children}
         </main>
         <Footer />

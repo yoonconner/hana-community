@@ -9,15 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Colors matched to logo
         navy: {
-          dark: '#1a1a2e',
-          medium: '#16213e',
-          light: '#0f3460',
+          dark: '#1E3A5F',
+          medium: '#2A4A6E',
+          light: '#3A5A7E',
         },
-        cream: '#f8f6f2',
-        'warm-white': '#fffefb',
+        slate: {
+          accent: '#8896AA',
+        },
+        cream: '#F8F9FA',
+        'warm-white': '#FEFEFE',
         gold: {
-          accent: '#e8c547',
+          accent: '#D4A84B',
         },
       },
       fontFamily: {

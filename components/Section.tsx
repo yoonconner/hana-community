@@ -18,7 +18,7 @@ export default function Section({
   id,
 }: SectionProps) {
   return (
-    <section id={id} className={`py-16 md:py-24 ${variants[variant]} ${className}`}>
+    <section id={id} className={`py-12 md:py-16 ${variants[variant]} ${className}`}>
       {children}
     </section>
   )

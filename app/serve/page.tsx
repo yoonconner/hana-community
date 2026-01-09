@@ -6,8 +6,8 @@ import Card from '@/components/Card'
 import Button from '@/components/Button'
 
 export const metadata = {
-  title: 'Serve | Hana Community',
-  description: 'Find serving opportunities with Hana Community. Use your gifts to make an impact.',
+  title: 'Serve | Agape Collective',
+  description: 'Find serving opportunities with Agape Collective. Use your gifts to make an impact.',
 }
 
 const teams = [

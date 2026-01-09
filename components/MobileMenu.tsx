@@ -67,15 +67,6 @@ export default function MobileMenu({ isOpen, onClose, links }: MobileMenuProps) 
                 </Link>
               </li>
             ))}
-            <li className="pt-4 border-t border-warm-white/10 mt-4">
-              <Link
-                href="/admin/login"
-                onClick={onClose}
-                className="block py-3 px-4 text-warm-white/60 hover:text-warm-white/80 hover:bg-warm-white/5 rounded-soft font-body text-sm transition-colors duration-200"
-              >
-                Admin Login
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>

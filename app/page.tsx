@@ -1,60 +1,30 @@
-import { Heart, Users, Coffee, MessageCircle } from 'lucide-react'
 import Container from '@/components/Container'
 import Section from '@/components/Section'
-import SectionHeading from '@/components/SectionHeading'
 import Button from '@/components/Button'
 import Card from '@/components/Card'
-import Calendar from '@/components/Calendar'
-import { getEvents, getUpcomingEvents } from '@/lib/actions/events'
-
-const values = [
-  {
-    icon: Heart,
-    title: 'Authentic Community',
-    description: 'Real relationships with people who care about you.',
-  },
-  {
-    icon: Users,
-    title: 'No Pressure',
-    description: 'Come as you are. No expectations, no judgment.',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Real Conversations',
-    description: 'Honest discussions about faith, life, and everything in between.',
-  },
-  {
-    icon: Coffee,
-    title: 'Food & Fellowship',
-    description: 'Good food, great company, and meaningful connections.',
-  },
-]
+import { getUpcomingEvents } from '@/lib/actions/events'
 
 export default async function HomePage() {
-  const events = await getEvents()
   const upcomingEvents = await getUpcomingEvents(1)
   const nextGathering = upcomingEvents[0]
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-navy-dark text-warm-white min-h-[80vh] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy-medium to-navy-light opacity-90" />
+      <section className="relative text-white flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-navy-dark" />
         <Container className="relative z-10 py-20">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-heading font-semibold text-4xl md:text-6xl lg:text-7xl mb-6">
-              Welcome Home
+            <h1 className="font-heading font-semibold text-4xl md:text-5xl lg:text-6xl mb-4">
+              Agape Collective
             </h1>
-            <p className="text-xl md:text-2xl text-warm-white/80 mb-8 font-light">
-              You belong here. A community of young adults growing in faith together.
-            </p>
-            <p className="text-lg text-warm-white/60 mb-8 font-korean">
-              하나 공동체 — We are one.
+            <p className="text-lg md:text-xl text-white/80 mb-6 font-light">
+              A community of young adults growing in faith together.
             </p>
             {nextGathering ? (
-              <div className="mb-8">
-                <p className="text-gold-accent font-medium mb-2">Next Gathering</p>
-                <p className="text-warm-white/90">
+              <div className="mb-6 bg-white/10 inline-block px-6 py-3 rounded-soft">
+                <p className="text-gold-accent font-medium text-sm mb-1">Next Gathering</p>
+                <p className="text-white/90">
                   {new Date(nextGathering.event_date + 'T00:00:00').toLocaleDateString('en-US', {
                     weekday: 'long',
                     month: 'long',
@@ -64,14 +34,16 @@ export default async function HomePage() {
                 </p>
               </div>
             ) : (
-              <div className="mb-8">
-                <p className="text-gold-accent font-medium mb-2">Every Other Friday</p>
-                <p className="text-warm-white/90">5:30 PM at CM</p>
+              <div className="mb-6 bg-white/10 inline-block px-6 py-3 rounded-soft">
+                <p className="text-gold-accent font-medium text-sm mb-1">Every Other Friday</p>
+                <p className="text-white/90">5:30 PM at CM</p>
               </div>
             )}
-            <Button href="/gather" size="lg">
-              Join Us This Friday
-            </Button>
+            <div className="mt-4">
+              <Button href="/gather" size="lg">
+                Join Us
+              </Button>
+            </div>
           </div>
         </Container>
       </section>
@@ -79,88 +51,68 @@ export default async function HomePage() {
       {/* Vision & Mission Section */}
       <Section variant="cream">
         <Container>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Card>
-              <h3 className="font-heading font-semibold text-xl text-navy-dark mb-4">
+          <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            <Card className="p-8 md:p-10">
+              <h3 className="font-heading font-semibold text-2xl md:text-3xl text-navy-dark mb-6">
                 Our Vision
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                A vibrant community where young adults from every background grow in faith,
-                serve together, and bridge the generations and cultures of our church.
+              <p className="text-gray-600 leading-relaxed text-lg">
+                A ministry grounded in worship, discipleship, fellowship, and community service
+                where young believers find healing, renewed passion, and leadership to empower the church.
               </p>
             </Card>
-            <Card>
-              <h3 className="font-heading font-semibold text-xl text-navy-dark mb-4">
+            <Card className="p-8 md:p-10">
+              <h3 className="font-heading font-semibold text-2xl md:text-3xl text-navy-dark mb-6">
                 Our Mission
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Building bridges across KPCF through faith, fellowship, and service.
-                We believe in creating space where everyone can belong.
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Building bridges across KPCF through faith, fellowship, and worship.
               </p>
             </Card>
           </div>
         </Container>
       </Section>
 
-      {/* Calendar Section */}
-      <Section variant="light">
-        <Container>
-          <SectionHeading
-            title="Upcoming Gatherings"
-            subtitle="We meet every other Friday at 5:30 PM. Join us!"
-          />
-          <div className="max-w-4xl mx-auto">
-            <Calendar events={events} />
-          </div>
-        </Container>
-      </Section>
-
-      {/* Values Section */}
-      <Section variant="cream">
-        <Container>
-          <SectionHeading
-            title="What to Expect"
-            subtitle="Here's what you'll find when you join us."
-          />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {values.map((value) => (
-              <Card key={value.title} className="text-center">
-                <div className="w-12 h-12 bg-gold-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <value.icon size={24} className="text-navy-light" />
+      {/* Photo Gallery Placeholder Section */}
+      <section className="relative py-16 md:py-24 bg-navy-dark text-warm-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy-dark/90 to-navy-dark/80">
+          {/* Placeholder background pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="grid grid-cols-3 gap-4 h-full w-full">
+              {[...Array(9)].map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-warm-white/20 border-2 border-dashed border-warm-white/30 flex items-center justify-center"
+                >
+                  <svg
+                    className="w-12 h-12 text-warm-white/40"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
                 </div>
-                <h3 className="font-heading font-semibold text-lg text-navy-dark mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {value.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* CTA Section */}
-      <Section variant="dark">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="font-heading font-semibold text-3xl md:text-4xl text-warm-white mb-4">
-              Ready to Connect?
-            </h2>
-            <p className="text-warm-white/70 text-lg mb-8">
-              We&apos;d love to meet you. Drop by a gathering or reach out — no pressure, just community.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/gather" variant="secondary">
-                Find a Gathering
-              </Button>
-              <Button href="/connect" variant="ghost" className="text-warm-white hover:bg-warm-white/10">
-                Get in Touch
-              </Button>
+              ))}
             </div>
           </div>
+        </div>
+        <Container className="relative z-10">
+          <div className="text-center">
+            <p className="text-warm-white/60 text-sm uppercase tracking-wide mb-2">
+              Photo Gallery
+            </p>
+            <p className="text-warm-white/40 text-xs">
+              Photos can be added here later
+            </p>
+          </div>
         </Container>
-      </Section>
+      </section>
     </>
   )
 }

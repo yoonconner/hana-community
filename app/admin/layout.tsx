@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Admin | Hana Community',
-  description: 'Admin dashboard for Hana Community',
+  title: 'Admin | Agape Collective',
+  description: 'Admin dashboard for Agape Collective',
 }
 
 export default function AdminLayout({

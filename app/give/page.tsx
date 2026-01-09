@@ -5,8 +5,8 @@ import Card from '@/components/Card'
 import Button from '@/components/Button'
 
 export const metadata = {
-  title: 'Give | Hana Community',
-  description: 'Support Hana Community through generous giving. Every gift makes a difference.',
+  title: 'Give | Agape Collective',
+  description: 'Support Agape Collective through generous giving. Every gift makes a difference.',
 }
 
 export default function GivePage() {
@@ -66,7 +66,7 @@ export default function GivePage() {
                 </h3>
                 <p className="text-gray-600 mb-4">
                   Give securely online through KPCF&apos;s giving platform.
-                  Select &quot;Hana Community&quot; in the fund dropdown to designate
+                  Select &quot;Agape Collective&quot; in the fund dropdown to designate
                   your gift to our ministry.
                 </p>
                 <Button href="#" variant="primary">
@@ -81,8 +81,8 @@ export default function GivePage() {
                 </h3>
                 <p className="text-gray-600">
                   You can also give in person during KPCF Sunday services or at
-                  Hana Community gatherings. Just mark your envelope or giving
-                  form with &quot;Hana Community&quot;.
+                  Agape Collective gatherings. Just mark your envelope or giving
+                  form with &quot;Agape Collective&quot;.
                 </p>
               </Card>
 
@@ -109,7 +109,7 @@ export default function GivePage() {
               Part of KPCF
             </h2>
             <p className="text-gray-600">
-              Hana Community is a ministry of Korean Presbyterian Church of Fresno.
+              Agape Collective is a ministry of Korean Presbyterian Church of Fresno.
               All gifts are tax-deductible and go through KPCF&apos;s giving system.
               Thank you for your generosity!
             </p>

@@ -4,7 +4,67 @@ import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import type { Event } from '@/lib/types'
 
+// Demo events for when Supabase isn't configured
+const demoEvents: Event[] = [
+  {
+    id: '1',
+    title: 'Agape Collective Gathering',
+    description: 'Join us for our bi-weekly gathering! Food, fellowship, and faith.',
+    event_date: '2026-01-16',
+    start_time: '17:30',
+    end_time: '20:00',
+    location: 'CM',
+    is_recurring: true,
+    recurrence_pattern: 'bi-weekly',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '2',
+    title: 'Agape Collective Gathering',
+    description: 'Join us for our bi-weekly gathering! Food, fellowship, and faith.',
+    event_date: '2026-01-30',
+    start_time: '17:30',
+    end_time: '20:00',
+    location: 'CM',
+    is_recurring: true,
+    recurrence_pattern: 'bi-weekly',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '3',
+    title: 'Agape Collective Gathering',
+    description: 'Join us for our bi-weekly gathering! Food, fellowship, and faith.',
+    event_date: '2026-02-13',
+    start_time: '17:30',
+    end_time: '20:00',
+    location: 'CM',
+    is_recurring: true,
+    recurrence_pattern: 'bi-weekly',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: '4',
+    title: 'Agape Collective Gathering',
+    description: 'Join us for our bi-weekly gathering! Food, fellowship, and faith.',
+    event_date: '2026-02-27',
+    start_time: '17:30',
+    end_time: '20:00',
+    location: 'CM',
+    is_recurring: true,
+    recurrence_pattern: 'bi-weekly',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+]
+
 export async function getEvents(): Promise<Event[]> {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    return demoEvents
+  }
+
   const supabase = await createClient()
 
   const { data, error } = await supabase
@@ -14,13 +74,18 @@ export async function getEvents(): Promise<Event[]> {
 
   if (error) {
     console.error('Error fetching events:', error)
-    return []
+    return demoEvents
   }
 
   return data || []
 }
 
 export async function getUpcomingEvents(limit = 5): Promise<Event[]> {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    const today = new Date().toISOString().split('T')[0]
+    return demoEvents.filter(e => e.event_date >= today).slice(0, limit)
+  }
+
   const supabase = await createClient()
   const today = new Date().toISOString().split('T')[0]
 
@@ -33,7 +98,7 @@ export async function getUpcomingEvents(limit = 5): Promise<Event[]> {
 
   if (error) {
     console.error('Error fetching upcoming events:', error)
-    return []
+    return demoEvents.filter(e => e.event_date >= today).slice(0, limit)
   }
 
   return data || []
