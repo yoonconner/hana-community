@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-cream flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Logo variant="full" colorMode="dark" className="justify-center" />
+          <Logo size={80} className="mx-auto" />
           <p className="text-gray-600 mt-4">Admin Login</p>
         </div>
 

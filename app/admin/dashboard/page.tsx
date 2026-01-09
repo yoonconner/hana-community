@@ -33,7 +33,7 @@ export default async function AdminDashboard() {
         <Container>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Logo variant="icon" colorMode="light" />
+              <Logo size={40} />
               <div>
                 <h1 className="font-heading font-semibold">Admin Dashboard</h1>
                 <p className="text-sm text-warm-white/60">{user.email}</p>

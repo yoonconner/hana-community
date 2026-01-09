@@ -84,7 +84,7 @@ export default function EditEventPage() {
       <header className="bg-navy-dark text-warm-white py-4">
         <Container>
           <div className="flex items-center gap-4">
-            <Logo variant="icon" colorMode="light" />
+            <Logo size={40} />
             <div>
               <h1 className="font-heading font-semibold">Edit Event</h1>
             </div>
